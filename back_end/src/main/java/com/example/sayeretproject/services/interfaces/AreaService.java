@@ -10,4 +10,7 @@ import java.util.List;
 public interface AreaService {
 //    Area getAreaByName(String areaName) throws ExistException;
     Area getAreaById(int areaId) throws ExistException;
+    void save();
+
+    List<Area> getAllAreas();
 }

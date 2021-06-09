@@ -18,8 +18,10 @@ public class Point {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String areaId;
+    private int areaId;
+    private String areaName;
     private String imagesPath;
     private String lmHeight;
     private String lmWidth;
+    private int numOfImages;
 }

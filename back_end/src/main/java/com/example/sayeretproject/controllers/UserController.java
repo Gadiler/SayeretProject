@@ -24,6 +24,11 @@ public class UserController {
         return new ResponseEntity<>(this.pointService.getAllPoints(), HttpStatus.ACCEPTED);
     }
 
+    @GetMapping(path = "/getAllAreas", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<?> getAllAreas() throws ExistException {
+        return new ResponseEntity<>(this.areaService.getAllAreas(), HttpStatus.ACCEPTED);
+    }
+
     @GetMapping(path = "/getPointById", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> getPointById(int pointId) throws ExistException {
         return new ResponseEntity<>(this.pointService.getPointById(pointId), HttpStatus.ACCEPTED);
@@ -41,7 +46,7 @@ public class UserController {
         if (ExcelHelper.hasExcelFormat(file)) {
             try {
                 pointService.save(file);
-
+                areaService.save();
                 message = "Uploaded the file successfully: " + file.getOriginalFilename();
                 return new ResponseEntity<>(message, HttpStatus.OK);
             } catch (Exception e) {

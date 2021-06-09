@@ -35,8 +35,8 @@ public class PointServiceImpl extends UserService implements PointService {
     public void save(MultipartFile file) {
         try {
             List<Point> tutorials = ExcelHelper.excelToTutorials(file.getInputStream());
-
             pointRepository.saveAll(tutorials);
+
         } catch (IOException e) {
             throw new RuntimeException("fail to store excel data: " + e.getMessage());
         }

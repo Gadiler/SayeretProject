@@ -1,5 +1,6 @@
 package com.example.sayeretproject.helper;
 
+import com.example.sayeretproject.beans.Area;
 import com.example.sayeretproject.beans.Point;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -56,23 +57,31 @@ public class ExcelHelper {
                             break;
 
                         case 1:
-                            tutorial.setAreaId(currentCell.getStringCellValue());
+                            tutorial.setAreaId((int) currentCell.getNumericCellValue());
                             break;
 
                         case 2:
-                            tutorial.setName(currentCell.getStringCellValue());
+                            tutorial.setAreaName(currentCell.getStringCellValue());
                             break;
 
                         case 3:
-                            tutorial.setImagesPath(currentCell.getStringCellValue());
+                            tutorial.setName(currentCell.getStringCellValue());
                             break;
 
                         case 4:
-                            tutorial.setLmWidth(currentCell.getStringCellValue());
+                            tutorial.setImagesPath(currentCell.getStringCellValue());
                             break;
 
                         case 5:
+                            tutorial.setLmWidth(currentCell.getStringCellValue());
+                            break;
+
+                        case 6:
                             tutorial.setLmHeight(currentCell.getStringCellValue());
+                            break;
+
+                        case 7:
+                            tutorial.setNumOfImages((int) currentCell.getNumericCellValue());
                             break;
 
                         default:

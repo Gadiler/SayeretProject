@@ -1,19 +1,24 @@
 package com.example.sayeretproject.beans;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
 @Table(name = "areas")
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Area {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String area;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Singular
+    private List<Point> points = new ArrayList<>();
 }
